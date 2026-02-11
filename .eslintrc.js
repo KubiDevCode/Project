@@ -6,6 +6,7 @@ module.exports = {
     extends: [
         'plugin:react/recommended',
         'airbnb',
+        "plugin:i18next/recommended",
     ],
     parser: '@typescript-eslint/parser',
 
@@ -34,6 +35,7 @@ module.exports = {
         'jsx-quotes': 'off',
         'no-unused-vars': 'off', // отключаем базовое
         '@typescript-eslint/no-unused-vars': ['warn'],
+        'i18next/no-literal-string': ['error', { markupOnly: true }],
     },
     globals: {
         __IS_DEV__: true,
