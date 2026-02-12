@@ -1,5 +1,6 @@
 type Mods = Record<string, boolean | string>
 
+// eslint-disable-next-line max-len
 export function classNames(cls: string, mods: Mods = {}, additionals: string[] = []): string {
     return [
         cls,
