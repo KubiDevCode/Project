@@ -5,10 +5,8 @@ import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer'
 import { BuildOptions } from './types/config'
 
 export function buildPlugins({ paths, isDev }: BuildOptions): webpack.WebpackPluginInstance[] {
-    return [
-        new HtmlWebpackPlugin({
-            template: paths.html,
-        }),
+    const plugins: webpack.WebpackPluginInstance[] = [
+        new HtmlWebpackPlugin({ template: paths.html }),
         new webpack.ProgressPlugin(),
         new MiniCssExtractPlugin({
             filename: 'css/[name].[contenthash:8].css',
@@ -17,9 +15,12 @@ export function buildPlugins({ paths, isDev }: BuildOptions): webpack.WebpackPlu
         new webpack.DefinePlugin({
             __IS_DEV__: JSON.stringify(isDev),
         }),
-        new webpack.HotModuleReplacementPlugin(),
-        new BundleAnalyzerPlugin(
-            { openAnalyzer: false },
-        ),
-    ]
+    ];
+
+    if (isDev) {
+        plugins.push(new webpack.HotModuleReplacementPlugin());
+        // analyzer лучше включать отдельным флагом, но если хочешь — пусть будет только в dev:
+        plugins.push(new BundleAnalyzerPlugin({ openAnalyzer: false }));
+    }
+    return plugins;
 }
