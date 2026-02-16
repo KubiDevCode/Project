@@ -4,5 +4,7 @@
   "MainPage": "Main Page",
   "Page not found": "Page not found",
   "ErrorPageUpdate": "Update page",
-  "throwError": "Throw error"
+  "throwError": "Throw error",
+  "Main": "Main",
+  "toogle": "toggle"
 }
