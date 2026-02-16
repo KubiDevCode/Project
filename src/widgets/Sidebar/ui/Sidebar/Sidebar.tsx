@@ -5,6 +5,7 @@ import { LangSwitcher } from 'widgets/LangSwitcher/ui/LangSwitcher';
 import { t } from 'i18next';
 import s from './Sidebar.module.scss';
 import { Button } from '../../../../shared/ui/Button/Button';
+import { t } from 'i18next';
 
 interface SidebarProps {
     className?: string;
