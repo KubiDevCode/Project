@@ -1,13 +1,2 @@
 node_modules/
 
-# Playwright artifacts
-test-results/
-playwright-report/
-blob-report/
-
-# Storybook build (артефакт)
-storybook-static/
-
-# caches
-.cache/
-**/.cache/
