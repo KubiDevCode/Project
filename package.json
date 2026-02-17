@@ -14,10 +14,11 @@
     "lint:scss:fix": "npx stylelint \"**/*.scss\" --fix",
     "unit": "jest --config ./config/jest/jest.config.ts",
     "test": "jest",
+    "storybook": "build-storybook -c ./config/storybook",
     "storybook:build": "build-storybook -c ./config/storybook -o storybook-static",
     "storybook:serve": "http-server ./storybook-static -p 6006 -a 127.0.0.1 -c-1",
     "test:ui": "npx playwright test",
-    "test:ui:update": "npx playwright test --update-snapshots",
+    "test:ui:ok": "npx playwright test --update-snapshots",
     "test:ui:ci": "start-server-and-test \"npm run storybook:serve\" http://127.0.0.1:6006 \"npx playwright test\""
   },
   "keywords": [],
