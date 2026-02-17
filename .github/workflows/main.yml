@@ -40,9 +40,6 @@ jobs:
 
       - name: build storybook
         run: npm run storybook:build
-      
-      - name: build local server
-        run: npm run storybook:serve
 
       - name: ui tests
         run: npm run test:ui:ci
