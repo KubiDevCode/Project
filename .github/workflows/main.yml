@@ -38,15 +38,20 @@ jobs:
 
       - name: Lint TS
         run: npm run lint:ts
-
+        if: always()
+        
       - name: Lint styles
         run: npm run lint:scss
+        if: always()
 
       - name: Unit tests
         run: npm run unit
+        if: always()
 
       - name: Install Playwright browsers
         run: npx playwright install chromium
+        if: always()
 
       - name: ui tests
         run: npm run test:ui:ci
+        if: always()

@@ -17,7 +17,8 @@
     "storybook": "start-storybook -c ./config/storybook",
     "storybook:build": "build-storybook -c ./config/storybook -o storybook-static",
     "storybook:serve": "http-server ./storybook-static -p 6006 -a 127.0.0.1 -c-1",
-    "test:ui": "npx playwright test",
+    "test:ui": "playwright test",
+    "test:diff":"node pw-screenshots-report.mjs",
     "test:ui:ok": "npx playwright test --update-snapshots",
     "test:ui:ci": "concurrently -k -s first -n server,test \"npm run storybook:serve\" \"wait-on http://127.0.0.1:6006 && npx playwright test\""
   },
@@ -62,6 +63,7 @@
     "jest": "^27.5.1",
     "loki": "^0.30.3",
     "mini-css-extract-plugin": "^2.5.3",
+    "reg-cli": "^0.18.14",
     "regenerator-runtime": "^0.13.9",
     "sass": "^1.97.3",
     "sass-loader": "^16.0.7",
