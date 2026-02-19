@@ -7,5 +7,6 @@
   "ErrorPageUpdate": "Обновить страницу",
   "throwError": "Создать ошибку",
   "Main": "Главная",
-  "ShortLang": "Ру"
+  "ShortLang": "Ру",
+  "login": "Войти"
 }

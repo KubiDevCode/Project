@@ -18,7 +18,7 @@
     "storybook:build": "build-storybook -c ./config/storybook -o storybook-static",
     "storybook:serve": "http-server ./storybook-static -p 6006 -a 127.0.0.1 -c-1",
     "test:ui": "playwright test",
-    "test:diff":"node pw-screenshots-report.mjs",
+    "test:diff": "node pw-screenshots-report.mjs",
     "test:ui:ok": "npx playwright test --update-snapshots",
     "test:ui:ci": "concurrently -k -s first -n server,test \"npm run storybook:serve\" \"wait-on http://127.0.0.1:6006 && npx playwright test\""
   },
@@ -56,6 +56,7 @@
     "eslint-config-airbnb": "^19.0.4",
     "eslint-plugin-i18next": "^5.1.2",
     "eslint-plugin-react": "^7.29.2",
+    "eslint-plugin-react-hooks": "^4.3.0",
     "file-loader": "^6.2.0",
     "html-webpack-plugin": "^5.5.0",
     "http-server": "^14.1.1",

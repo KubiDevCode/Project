@@ -2,9 +2,9 @@ import './styles/index.scss';
 import { useTheme } from 'app/providers/ThemeProvider';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Suspense } from 'react';
+import { Navbar } from 'widgets/Navbar';
+import { Sidebar } from 'widgets/Sidebar/inedx';
 import { AppRouter } from './providers/router';
-import { Navbar } from '../widgets/Navbar';
-import { Sidebar } from '../widgets/Sidebar/inedx';
 
 const App = () => {
     const { theme } = useTheme();
