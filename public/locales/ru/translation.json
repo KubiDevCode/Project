@@ -8,5 +8,7 @@
   "throwError": "Создать ошибку",
   "Main": "Главная",
   "ShortLang": "Ру",
-  "login": "Войти"
+  "login": "Войти",
+  "LoginForm": "Введите username",
+  "PassForm": "Введите пароль"
 }

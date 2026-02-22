@@ -8,5 +8,7 @@
   "Main": "Main",
   "toogle": "toggle",
   "ShortLang": "En",
-  "login": "Login"
+  "login": "Login",
+  "PassForm": "Enter the password",
+  "LoginForm": "Enter the username"
 }
