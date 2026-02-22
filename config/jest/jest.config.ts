@@ -22,6 +22,9 @@ export default {
     moduleDirectories: [
         'node_modules',
     ],
+    globals: {
+        __IS_DEV__: true,
+    },
     modulePaths: ['<rootDir>/src'],
     testMatch: [
         // РћР±РЅР°СЂСѓР¶РёР» СЂР°Р·РЅРёС†Сѓ РјРµР¶РґСѓ РњРђРљ РћРЎ Рё Р’РРќР”РћРЈРЎ!!!
@@ -72,9 +75,6 @@ export default {
 
     // A path to a module which exports an async function that is triggered once after all test suites
     // globalTeardown: undefined,
-
-    // A set of global variables that need to be available in all test environments
-    // globals: {},
 
     // The maximum amount of workers used to run your tests. Can be specified as % or a number. E.g. maxWorkers: 10% will use 10% of your CPU amount + 1 as the maximum worker number. maxWorkers: 2 will use a maximum of 2 workers.
     // maxWorkers: "50%",

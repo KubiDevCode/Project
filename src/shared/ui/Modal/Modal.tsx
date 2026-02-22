@@ -13,6 +13,7 @@ interface ModalProps {
     children?: ReactNode
     isOpen?: boolean
     onClose?: () => void
+    lazy?: boolean
 }
 
 const ANIMATION_DELAY = 300;
@@ -23,11 +24,18 @@ export const Modal = (props: ModalProps) => {
         children,
         onClose,
         isOpen,
+        lazy,
     } = props
 
-    const { theme } = useTheme()
     const [closing, isClosing] = useState(false)
+    const [isMounted, setIsMounted] = useState(false)
     const timerRef = useRef<ReturnType<typeof setTimeout>>()
+
+    useEffect(() => {
+        if (isOpen) {
+            setIsMounted(true)
+        }
+    }, [isOpen])
 
     const closeHandler = useCallback(() => {
         if (onClose) {
@@ -65,16 +73,19 @@ export const Modal = (props: ModalProps) => {
         [s.isClosing]: closing,
     }
 
+    if (lazy && !isMounted) {
+        return null
+    }
+
     return (
         <Portal>
-            <div className={classNames(s.Modal, mods, [className, theme])}>
+            <div className={classNames(s.Modal, mods, [className])}>
                 <div
                     className={s.overlay}
                     onClick={closeHandler}
                 >
                     <div className={s.content} onClick={onContentClick}>
-                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Illo, perferendis! Facilis magnam assumenda, earum in fugiat pariatur velit doloremque sequi accusamus fugit illum laborum error nesciunt soluta dicta vel autem a fuga natus dolores recusandae. Recusandae aliquid iusto, natus mollitia voluptates,
-                        adipisci rem unde eaque labore dicta aut! Quasi voluptatem iure obcaecati animi alias molestiae, quia excepturi repudiandae vitae qui iusto. Possimus culpa fuga at veritatis, obcaecati quia iusto error sint quidem assumenda a sed? Illum debitis numquam quas, animi sed provident nostrum? Architecto quibusdam debitis, veritatis corrupti a laudantium voluptate laborum ducimus deserunt obcaecati qui asperiores dolor quasi fugit.
+                        {children}
                     </div>
                 </div>
             </div>
