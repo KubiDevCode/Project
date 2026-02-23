@@ -10,5 +10,7 @@
   "ShortLang": "En",
   "login": "Login",
   "PassForm": "Enter the password",
-  "LoginForm": "Enter the username"
+  "LoginForm": "Enter the username",
+  "AuthForm": "Authorization form",
+  "logout": "Logout"
 }

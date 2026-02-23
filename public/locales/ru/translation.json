@@ -10,5 +10,7 @@
   "ShortLang": "Ру",
   "login": "Войти",
   "LoginForm": "Введите username",
-  "PassForm": "Введите пароль"
+  "PassForm": "Введите пароль",
+  "AuthForm": "Форма авторизации",
+  "logout": "Выйти"
 }

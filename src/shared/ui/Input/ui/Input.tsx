@@ -44,6 +44,7 @@ export const Input = memo((props: inputProps) => {
                 </div>
             )}
             <input
+                className={s.input}
                 type={type}
                 ref={ref}
                 value={value}
