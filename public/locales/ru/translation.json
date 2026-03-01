@@ -12,5 +12,7 @@
   "LoginForm": "Введите username",
   "PassForm": "Введите пароль",
   "AuthForm": "Форма авторизации",
-  "logout": "Выйти"
+  "logout": "Выйти",
+  "ProfilePage": "Страница профиля",
+  "AboutPage": "О странице"
 }

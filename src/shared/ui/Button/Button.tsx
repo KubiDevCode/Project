@@ -1,5 +1,6 @@
+/* eslint-disable react/prop-types */
 import { classNames } from 'shared/lib/classNames/classNames';
-import { ButtonHTMLAttributes, FC } from 'react';
+import { ButtonHTMLAttributes, FC, memo } from 'react';
 import s from './Button.module.scss';
 
 export enum ButtonTheme {
@@ -22,32 +23,35 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     square?: boolean
     size?: ButtonSize
     disabled?: boolean
+    isSucsess?: boolean
 }
 
-export const Button: FC<ButtonProps> = (props) => {
-    const {
-        children,
-        className,
-        theme,
-        square,
-        size = ButtonSize.M,
-        disabled,
-        ...otherProps
-    } = props
+export const Button: FC<ButtonProps> = memo(
+    (props) => {
+        const {
+            children,
+            className,
+            theme = ButtonTheme.OUTLINE,
+            square,
+            size = ButtonSize.M,
+            disabled,
+            ...otherProps
+        } = props
 
-    const mods: Record<string, boolean> = {
-        [s.square]: square,
-        [s.disabled]: disabled,
-    }
+        const mods: Record<string, boolean | undefined> = {
+            [s.square]: square,
+            [s.disabled]: disabled,
+        }
 
-    return (
-        <button
-            type='button'
-            className={classNames(s.Button, mods, [className, s[theme], s[size]])}
-            disabled={disabled}
-            {...otherProps}
-        >
-            {children}
-        </button>
-    );
-};
+        return (
+            <button
+                type='button'
+                className={classNames(s.Button, mods, [className, s[theme], s[size]])}
+                disabled={disabled}
+                {...otherProps}
+            >
+                {children}
+            </button>
+        );
+    },
+)

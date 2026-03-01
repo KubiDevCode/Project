@@ -12,5 +12,7 @@
   "PassForm": "Enter the password",
   "LoginForm": "Enter the username",
   "AuthForm": "Authorization form",
-  "logout": "Logout"
+  "logout": "Logout",
+  "ProfilePage": "Profile page",
+  "AboutPage": "About page"
 }

@@ -24,11 +24,11 @@ export const Input = memo((props: inputProps) => {
         ...otherProps
     } = props
 
-    const ref = useRef<HTMLInputElement>()
+    const ref = useRef<HTMLInputElement>(null)
 
     useEffect(() => {
         if (autofocus) {
-            ref.current.focus()
+            ref?.current?.focus()
         }
     }, [autofocus])
 

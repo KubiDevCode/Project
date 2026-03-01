@@ -33,5 +33,6 @@ Light.decorators = [StoreDecorator({
     loginForm: {
         username: '123',
         password: '123',
+        isLoading: false,
     },
 })]
