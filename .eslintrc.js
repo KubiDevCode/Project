@@ -52,11 +52,12 @@ module.exports = {
         'no-param-reassign': 'off',
         'arrow-body-style': 'off',
         'react/prop-types': 'off',
-        'no-undef': 'off'
+        'no-undef': 'off',
     },
     globals: {
         __IS_DEV__: true,
         __API__: true,
+        __PROJECT__: true,
     },
     overrides: [
         {

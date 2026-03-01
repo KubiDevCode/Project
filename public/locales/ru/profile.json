@@ -1,6 +1,20 @@
 {
-    "Profile": "Профиль",
-    "Redact": "Редактировать",
-    "Name": "Имя",
-    "LName": "Фамилия"
+  "Profile": "Профиль",
+  "Redact": "Редактировать",
+"loadErrorTitle": "Ошибка при загрузке",
+  "loadErrorText": "Попробуйте обновить страницу",
+  "firstName": "Имя",
+  "lastName": "Фамилия",
+  "age": "Ваш возраст",
+  "city": "Ваш город",
+  "username": "Имя пользователя",
+  "avatar": "Ссылка на аватар",
+  "Save": "Сохранить",
+  "validation": {
+      "incorrectUserData": "Некорректные данные пользователя",
+      "incorrectUserAge": "Некорректный возраст",
+      "incorrectUserCountry": "Некорректная страна",
+      "noData": "Данные отсутствуют",
+      "serverError": "Ошибка сервера"
+    }
 }
