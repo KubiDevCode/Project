@@ -1,7 +1,7 @@
 {
   "Profile": "Профиль",
   "Redact": "Редактировать",
-"loadErrorTitle": "Ошибка при загрузке",
+  "loadErrorTitle": "Ошибка при загрузке",
   "loadErrorText": "Попробуйте обновить страницу",
   "firstName": "Имя",
   "lastName": "Фамилия",
@@ -11,10 +11,11 @@
   "avatar": "Ссылка на аватар",
   "Save": "Сохранить",
   "validation": {
-      "incorrectUserData": "Некорректные данные пользователя",
-      "incorrectUserAge": "Некорректный возраст",
-      "incorrectUserCountry": "Некорректная страна",
-      "noData": "Данные отсутствуют",
-      "serverError": "Ошибка сервера"
-    }
+    "incorrectUserData": "Некорректные данные пользователя",
+    "incorrectUserAge": "Некорректный возраст",
+    "incorrectUserCountry": "Некорректная страна",
+    "noData": "Данные отсутствуют",
+    "serverError": "Ошибка сервера"
+  },
+  "Cancel": "Отменить"
 }

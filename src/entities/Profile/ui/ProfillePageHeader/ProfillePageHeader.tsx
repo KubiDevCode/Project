@@ -50,14 +50,14 @@ export const ProfillePageHeader = ({ className }: ProfillePageHeaderProps) => {
                             theme={ButtonTheme.OUTLINE_RED}
                             onClick={onCancelEdit}
                         >
-                            Отменить
+                            {t('Cancel')}
                         </Button>
                         <Button
                             className={s.saveBtn}
                             theme={ButtonTheme.OUTLINE}
                             onClick={onSave}
                         >
-                            Сохранить
+                            {t('Save')}
                         </Button>
                     </>
                 )}

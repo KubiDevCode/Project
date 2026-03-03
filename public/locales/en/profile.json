@@ -10,11 +10,12 @@
   "username": "Username",
   "avatar": "Avatar URL",
   "Save": "Save",
-   "validation": {
-      "incorrectUserData": "Incorrect user data",
-      "incorrectUserAge": "Incorrect age",
-      "incorrectUserCountry": "Incorrect country",
-      "noData": "No data provided",
-      "serverError": "Server error"
-    }
+  "validation": {
+    "incorrectUserData": "Incorrect user data",
+    "incorrectUserAge": "Incorrect age",
+    "incorrectUserCountry": "Incorrect country",
+    "noData": "No data provided",
+    "serverError": "Server error"
+  },
+  "Cancel": "Cancel"
 }
