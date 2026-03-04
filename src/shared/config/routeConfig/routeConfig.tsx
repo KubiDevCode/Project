@@ -1,39 +1,46 @@
-import { RouteProps } from 'react-router-dom'
-import { MainPage } from 'pages/MainPage'
-import { AboutPage } from 'pages/AboutPage'
-import { NotFoundPage } from 'pages/NotFoundPage/ui/NotFoundPage'
-import { ProfilePage } from 'pages/ProfilePage'
+import { RouteProps } from 'react-router-dom';
+import { MainPage } from 'pages/MainPage';
+import { AboutPage } from 'pages/AboutPage';
+import { NotFoundPage } from 'pages/NotFoundPage';
+import { ProfilePage } from 'pages/ProfilePage';
+
+export type AppRoutesProps = RouteProps & {
+    authOnly?: boolean;
+}
 
 export enum AppRoutes {
     MAIN = 'main',
     ABOUT = 'about',
     PROFILE = 'profile',
     // last
-    NOT_FOUND = 'not_found'
+    NOT_FOUND = 'not_found',
 }
 
-export const RouthPath: Record<AppRoutes, string> = {
+export const RoutePath: Record<AppRoutes, string> = {
     [AppRoutes.MAIN]: '/',
     [AppRoutes.ABOUT]: '/about',
     [AppRoutes.PROFILE]: '/profile',
+    // последний
     [AppRoutes.NOT_FOUND]: '*',
-}
+};
 
-export const routeConfig: Record<AppRoutes, RouteProps> = {
+export const routeConfig: Record<AppRoutes, AppRoutesProps> = {
     [AppRoutes.MAIN]: {
-        path: RouthPath.main,
+        path: RoutePath.main,
         element: <MainPage />,
     },
     [AppRoutes.ABOUT]: {
-        path: RouthPath.about,
+        path: RoutePath.about,
         element: <AboutPage />,
     },
     [AppRoutes.PROFILE]: {
-        path: RouthPath.profile,
+        path: RoutePath.profile,
         element: <ProfilePage />,
+        authOnly: true,
     },
+    // last
     [AppRoutes.NOT_FOUND]: {
-        path: RouthPath.not_found,
+        path: RoutePath.not_found,
         element: <NotFoundPage />,
     },
-}
+};
