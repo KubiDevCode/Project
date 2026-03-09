@@ -7,6 +7,8 @@ import { LoginSchema } from 'feauters/AuthByUsername';
 import { ProfileSchema } from 'entities/Profile';
 import { AxiosInstance } from 'axios';
 import { NavigateFunction } from 'react-router-dom';
+import { ArticleDetailsSchema } from 'entities/Article/index';
+import { ArticleDetailsCommentSchema } from 'pages/ArticleDetailsPage';
 import { createReduxStore } from './store';
 
 export interface StateSchema {
@@ -16,6 +18,8 @@ export interface StateSchema {
     // Ассинхронные редюсеры
     loginForm?: LoginSchema
     profile?: ProfileSchema
+    articleDetails?: ArticleDetailsSchema
+    articleDetailsComments?: ArticleDetailsCommentSchema
 }
 
 export type StateSchemaKey = keyof StateSchema

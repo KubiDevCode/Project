@@ -4,8 +4,8 @@ import s from './Avatar.module.scss';
 
 interface AvatarProps {
     className?: string;
-    src?: string
-    size?: number
+    src: string | undefined
+    size: number
     alt?: string
 }
 

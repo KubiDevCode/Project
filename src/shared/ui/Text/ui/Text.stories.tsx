@@ -2,7 +2,7 @@ import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { Theme } from 'app/providers/ThemeProvider';
-import { Text, TextTheme } from './Text';
+import { Text, TextSize, TextTheme } from './Text';
 
 export default {
     title: 'shared/Text',
@@ -54,4 +54,18 @@ Error.args = {
     title: 'Text',
     text: 'Text',
     theme: TextTheme.ERROR,
+};
+
+export const SizeMText = Template.bind({});
+OnlyText.args = {
+    title: 'Text',
+    text: 'Text',
+    size: TextSize.M,
+};
+
+export const SizeLText = Template.bind({});
+OnlyText.args = {
+    title: 'Text',
+    text: 'Text',
+    size: TextSize.L,
 };
