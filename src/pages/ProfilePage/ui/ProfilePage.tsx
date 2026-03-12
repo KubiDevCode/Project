@@ -10,11 +10,14 @@ import {
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useSelector } from 'react-redux';
 import { ProfillePageHeader } from 'entities/Profile/ui/ProfillePageHeader/ProfillePageHeader';
-import { Currency } from '../../../entities/Currency';
-import { Country } from '../../../entities/Country';
-import { Text } from '../../../shared/ui/Text';
-import { TextTheme } from '../../../shared/ui/Text/ui/Text';
-import { ValidateProfileError } from '../../../entities/Profile/model/types/profile';
+import { useParams } from 'react-router-dom';
+import { Currency } from 'entities/Currency';
+import { Country } from 'entities/Country';
+import { Text } from 'shared/ui/Text';
+import { TextTheme } from 'shared/ui/Text/ui/Text';
+import { ValidateProfileError } from 'entities/Profile/model/types/profile';
+import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
+import { Page } from '../../../shared/ui/Page/Page';
 
 const reducers: ReducersList = {
     profile: profileReducer,
@@ -36,12 +39,13 @@ const ProfilePage = () => {
         [ValidateProfileError.NO_DATA]: t('validation.noData'),
         [ValidateProfileError.SERVER_ERROR]: t('validation.serverError'),
     }
+    const { id } = useParams<{ id: string }>()
 
-    useEffect(() => {
-        if (__PROJECT__ !== 'storybook') {
-            dispatch(fetchProfileData())
+    useInitialEffect(() => {
+        if (id) {
+            dispatch(fetchProfileData(id))
         }
-    }, [dispatch])
+    })
 
     const onChangeFirstName = useCallback((value?: string) => {
         dispatch(profileActions.upadateProfile({ first: value }))
@@ -77,7 +81,7 @@ const ProfilePage = () => {
 
     return (
         <DynamicModalLoader reducers={reducers} removeAfterUnmount>
-            <div>
+            <Page>
                 <ProfillePageHeader />
                 {validateErrors?.length && validateErrors.map((err) => (
                     <Text theme={TextTheme.ERROR} text={validateErrorsTranslate[err]} key={err} />
@@ -96,7 +100,7 @@ const ProfilePage = () => {
                     onChangeCurrency={onChangeCurrency}
                     onChangeCountry={onChangeCountry}
                 />
-            </div>
+            </Page>
         </DynamicModalLoader>
     );
 };

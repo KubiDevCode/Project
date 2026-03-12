@@ -22,7 +22,6 @@ export function createReduxStore(
 
     const extraArg: ThunkExtraArg = {
         api: $api,
-        navigate,
     };
 
     const store = configureStore({

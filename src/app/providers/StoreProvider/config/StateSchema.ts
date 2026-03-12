@@ -9,6 +9,8 @@ import { AxiosInstance } from 'axios';
 import { NavigateFunction } from 'react-router-dom';
 import { ArticleDetailsSchema } from 'entities/Article/index';
 import { ArticleDetailsCommentSchema } from 'pages/ArticleDetailsPage';
+import { AddCommentFormSchema } from 'feauters/addCommentForm';
+import { ArticlesPageSchema } from 'pages/ArticlesPage';
 import { createReduxStore } from './store';
 
 export interface StateSchema {
@@ -20,6 +22,8 @@ export interface StateSchema {
     profile?: ProfileSchema
     articleDetails?: ArticleDetailsSchema
     articleDetailsComments?: ArticleDetailsCommentSchema
+    addCommentForm?: AddCommentFormSchema
+    articlesPage?: ArticlesPageSchema
 }
 
 export type StateSchemaKey = keyof StateSchema
@@ -39,7 +43,6 @@ export type AppDispatch = ReturnType<typeof createReduxStore>['dispatch'];
 
 export interface ThunkExtraArg {
     api: AxiosInstance,
-    navigate?: NavigateFunction,
 }
 
 export interface ThunkConfig<T> {
