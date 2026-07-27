@@ -1,4 +1,4 @@
-import { User } from "../../../User";
+import { User } from '../../../User';
 
 export enum ArticleBlockType {
     CODE = 'CODE',
@@ -30,10 +30,17 @@ export interface ArticleTextBlock extends ArticleBlockBase {
 
 export type ArticleBlock = ArticleCodeBlock | ArticleImageBlock | ArticleTextBlock;
 
+export enum ArticleSortField {
+    VIEWS = 'views',
+    TITLE = 'title',
+    CREATED = 'createdAt',
+}
+
 export enum ArticleType {
     IT = 'IT',
     SCIENCE = 'SCIENCE',
-    ECONOMICS = 'ECONOMICS'
+    ECONOMICS = 'ECONOMICS',
+    ALL = 'ALL',
 }
 
 export enum ArticleView {
