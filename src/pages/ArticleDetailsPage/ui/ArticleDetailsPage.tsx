@@ -51,7 +51,7 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
     if (!id) {
         return (
             <Page className={classNames(s.ArticleDetailsPage, {}, [className])}>
-                Статья не найдена
+                {t('Статья не найдена')}
             </Page>
         )
     }
@@ -64,7 +64,7 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
                 </Button>
                 <ArticleDetails id={id} />
                 <AddCommentForm onSendComment={onSendComment} />
-                <Text title='Комментарий' className={s.commentTitle} />
+                <Text title={t('Комментарий')} className={s.commentTitle} />
                 <CommentList comments={comments} isLoading={commentsIsLoading} />
             </Page>
         </DynamicModalLoader>
