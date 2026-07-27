@@ -6,16 +6,17 @@ import { UserSchema } from 'entities/User';
 import { LoginSchema } from 'feauters/AuthByUsername';
 import { ProfileSchema } from 'entities/Profile';
 import { AxiosInstance } from 'axios';
-import { NavigateFunction } from 'react-router-dom';
 import { ArticleDetailsSchema } from 'entities/Article/index';
 import { ArticleDetailsCommentSchema } from 'pages/ArticleDetailsPage';
 import { AddCommentFormSchema } from 'feauters/addCommentForm';
 import { ArticlesPageSchema } from 'pages/ArticlesPage';
+import { UISchema } from 'feauters/UI';
 import { createReduxStore } from './store';
 
 export interface StateSchema {
     counter: CounterSchema;
     user: UserSchema
+    ui:UISchema
 
     // Ассинхронные редюсеры
     loginForm?: LoginSchema
@@ -27,12 +28,13 @@ export interface StateSchema {
 }
 
 export type StateSchemaKey = keyof StateSchema
-
+export type MountedReducers = OptionalRecord<StateSchemaKey, boolean>
 export interface ReducerManager {
     getReducerMap: () => ReducersMapObject<StateSchema>
     reduce: (state: StateSchema, action: AnyAction) => CombinedState<StateSchema>
     add: (key: StateSchemaKey, reducer: Reducer) => void
     remove: (key: StateSchemaKey) => void
+    getMountedReducers: () => MountedReducers
 }
 
 export interface ReduxStoreWithManager extends EnhancedStore<StateSchema> {
