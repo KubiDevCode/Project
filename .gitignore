@@ -1,2 +1,9 @@
 node_modules/
+build/
+storybook-static/
+test-results/
+visual-report/
+extractedTranslations/
+.cache/
+.DS_Store
 
