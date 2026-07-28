@@ -4,7 +4,7 @@ import {
     USER_LOCALSTORAGE_KEY,
 } from '@/shared/const/localstorage';
 import { UserSchema, User } from '../types/user';
-import { setFeatureFlags } from '@/shared/lib/features';
+import { getAllFeatureFlags, setFeatureFlags } from '@/shared/lib/features';
 import { saveJsonSettings } from '../services/saveJsonSettings';
 import { JsonSettings } from '../types/jsonSettings';
 import { initAuthData } from '../services/initAuthData';
@@ -29,6 +29,10 @@ export const userSlice = createSlice({
         logout: (state) => {
             state.authData = undefined;
             localStorage.removeItem(USER_LOCALSTORAGE_KEY);
+            setFeatureFlags({
+                ...getAllFeatureFlags(),
+                isAppRedesigned: true,
+            });
         },
     },
     extraReducers: (builder) => {

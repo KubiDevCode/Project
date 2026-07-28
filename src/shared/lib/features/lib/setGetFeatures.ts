@@ -1,9 +1,13 @@
 import { FeatureFlags } from '@/shared/types/featureFlags';
-import { LOCAL_STORAGE_LAST_DESIGN_KEY } from '@/shared/const/localstorage';
+import {
+    LOCAL_STORAGE_LAST_DESIGN_KEY,
+    USER_LOCALSTORAGE_KEY,
+} from '@/shared/const/localstorage';
 
 const defaultFeatures: FeatureFlags = {
     isAppRedesigned:
-        localStorage.getItem(LOCAL_STORAGE_LAST_DESIGN_KEY) === 'new',
+        !localStorage.getItem(USER_LOCALSTORAGE_KEY) ||
+        localStorage.getItem(LOCAL_STORAGE_LAST_DESIGN_KEY) !== 'old',
 };
 // ФИЧИ НЕ МЕНЯЮТСЯ В ХОДЕ СЕССИИ, ИХ НЕОБЯЗАТЕЛЬНО ДЕЛАТЬ РЕАКТИВНЫМИ!
 let featureFlags: FeatureFlags = {
