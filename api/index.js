@@ -36,6 +36,17 @@ function normalizeValue(value) {
     return Array.isArray(value) ? value[0] : value;
 }
 
+function getPathSegments(req) {
+    const queryPath = normalizeValue(req.query.path);
+
+    if (queryPath) {
+        return queryPath.split('/').filter(Boolean);
+    }
+
+    const pathname = req.url.split('?')[0].replace(/^\/api\/?/, '');
+    return pathname.split('/').filter(Boolean);
+}
+
 function filterItems(items, query) {
     const search = normalizeValue(query.q)?.toLowerCase();
     const type = normalizeValue(query.type);
@@ -129,9 +140,7 @@ module.exports = function handler(req, res) {
     }
 
     const db = readDb();
-    const rawPath = req.query.path || [];
-    const segments = Array.isArray(rawPath) ? rawPath : [rawPath];
-    const [resource, id] = segments;
+    const [resource, id] = getPathSegments(req);
     const query = { ...req.query };
     delete query.path;
 
